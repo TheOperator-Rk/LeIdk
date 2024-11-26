@@ -1,0 +1,43 @@
+import os
+
+os.system('color 0C')
+os.system('cls')
+
+print("Info\nExecute\n")
+infoExecute = input().lower()
+os.system('cls')
+
+print("/i\n/s\n/r\n/a\n/h\n")
+infoExecuteChoice = input().lower()
+os.system('cls')
+
+if infoExecute == "info":
+    if infoExecuteChoice == "/i":
+        print("Display the graphical user interface. \nThis must be the first option.")
+    elif infoExecuteChoice == "/s":
+        print("Shutdown the computer.")
+    elif infoExecuteChoice == "/r":
+        print("Full shutdown and restart of the computer.")
+    elif infoExecuteChoice == "/a":
+        print("Abort system shutdown. \nThis can only be used during the time-out period.")
+    elif infoExecuteChoice == "/h":
+        print("Hibernate the local computer.")
+    else:
+        print("Invalid Input.")
+
+elif infoExecute == "execute":
+    if infoExecuteChoice == "/s":
+        print("How long should the timeout be.\nInput should be seconds.\nIf 0, the standard timeout will be used.\n")
+        timeout = input()
+        if timeout == 0:
+            os.system('shutdown' + infoExecuteChoice)
+        else:
+            os.system('shutdown ' + infoExecuteChoice + ' /t ' + str(timeout))
+    else:
+        os.system('shutdown' + infoExecuteChoice)
+
+else:
+    print("Invalid Input")
+
+os.system('pause')
+
